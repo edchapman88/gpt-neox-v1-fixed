@@ -406,6 +406,9 @@ class NeoXArgs(*BASE_CLASSES):
                     self.convert_key_value_to_command_line_arg(key, configured_value)
                 )
 
+        # Ed: Include this arg for single node slurm or mpi launching **only**
+        # args_list.extend(self.convert_key_value_to_command_line_arg("force_multi",True))
+
         if "DLTS_HOSTFILE" in os.environ:
             args_list.extend(
                 self.convert_key_value_to_command_line_arg(
